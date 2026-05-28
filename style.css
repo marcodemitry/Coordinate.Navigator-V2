@@ -1,0 +1,1151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:#061018;
+
+    color:white;
+
+    overflow-x:hidden;
+
+    scroll-behavior:smooth;
+
+}
+
+/* --------------------------
+   Splash Screen
+---------------------------*/
+
+#splashScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #061018,
+            #0b1d2d
+        );
+
+    z-index:999999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:0.5s;
+
+}
+
+.splash-logo{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:30px;
+
+    object-fit:cover;
+
+    border:
+        3px solid #00d9ff;
+
+    box-shadow:
+        0 0 40px rgba(0,217,255,0.35);
+
+    animation:
+        splashPulse 2s infinite;
+
+}
+
+.splash-title{
+
+    margin-top:24px;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#00e5ff;
+
+    letter-spacing:1.5px;
+
+    text-shadow:
+        0 0 10px rgba(0,229,255,0.5),
+        0 0 20px rgba(0,229,255,0.35);
+
+    animation:
+        splashTitleGlow 2s infinite alternate;
+
+}
+
+.splash-glow{
+
+    width:160px;
+
+    height:4px;
+
+    margin-top:12px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00d9ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,0.5);
+
+    animation:
+        glowMove 2s infinite linear;
+
+}
+
+.splash-subtitle{
+
+    margin-top:16px;
+
+    font-size:16px;
+
+    color:#d8f6ff;
+
+    letter-spacing:1px;
+
+    opacity:0.9;
+
+    text-shadow:
+        0 0 10px rgba(0,217,255,0.25);
+
+    animation:
+        fadeInUp 1.5s ease;
+
+}
+
+@keyframes splashPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* --------------------------
+   Header
+---------------------------*/
+
+.header{
+
+    width:100%;
+
+    padding:16px 14px;
+
+    text-align:center;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8,20,31,0.96),
+            rgba(13,31,48,0.92)
+        );
+
+    border-bottom:
+        1px solid rgba(0,217,255,0.18);
+
+    box-shadow:
+        0 6px 25px rgba(0,0,0,0.45),
+        0 0 25px rgba(0,217,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    overflow:hidden;
+
+}
+
+.logo{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    border:
+        2px solid rgba(0,217,255,0.7);
+
+    box-shadow:
+        0 0 18px rgba(0,217,255,0.22),
+        0 0 35px rgba(0,217,255,0.12);
+
+    margin-bottom:10px;
+
+    transition:0.3s;
+
+    animation:
+        splashPulse 3s infinite;
+
+}
+
+.title{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    letter-spacing:0.8px;
+
+    color:#00e5ff;
+
+    text-shadow:
+        0 0 10px rgba(0,229,255,0.5),
+        0 0 25px rgba(0,229,255,0.18);
+
+    animation:
+        splashTitleGlow 2.5s infinite alternate;
+
+}
+
+.subtitle{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    color:#c7eaff;
+
+    opacity:0.88;
+
+    text-shadow:
+        0 0 8px rgba(0,217,255,0.12);
+
+}
+
+/* --------------------------
+   Controls
+---------------------------*/
+
+.controls{
+
+    padding:14px;
+
+    background:#0b1824;
+
+}
+
+select,
+input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:14px;
+
+    margin-top:10px;
+
+    background:#122434;
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+    border:
+        1px solid transparent;
+
+    transition:0.2s;
+
+}
+
+select:focus,
+input:focus{
+
+    border:
+        1px solid #00d9ff;
+
+}
+
+/* --------------------------
+   DMS
+---------------------------*/
+
+.dms-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1.5fr
+        60px;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+/* --------------------------
+   Buttons
+---------------------------*/
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+    margin-top:14px;
+
+}
+
+button{
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.25);
+
+}
+
+button:active{
+
+    transform:
+        scale(0.96);
+
+}
+
+#startBtn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #009624
+        );
+
+    box-shadow:
+        0 0 18px rgba(0,200,83,0.28);
+
+}
+
+#stopBtn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1744,
+            #c3002f
+        );
+
+    box-shadow:
+        0 0 18px rgba(255,23,68,0.22);
+
+}
+
+#centerBtn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #00b0ff,
+            #007bff
+        );
+
+    box-shadow:
+        0 0 18px rgba(0,176,255,0.22);
+
+}
+
+#clearBtn{
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d6d6d,
+            #4e4e4e
+        );
+
+    box-shadow:
+        0 0 14px rgba(255,255,255,0.08);
+
+}
+
+/* --------------------------
+   Satellite Button
+---------------------------*/
+
+.satellite-btn{
+
+    width:100%;
+
+    margin-top:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ff5e00
+        );
+
+    box-shadow:
+        0 0 18px rgba(255,152,0,0.35);
+
+}
+
+.satellite-active{
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #009624
+        ) !important;
+
+}
+
+/* --------------------------
+   Save Location Button
+---------------------------*/
+
+.save-location-btn{
+
+    width:100%;
+
+    margin-top:12px;
+
+    background:#7b2cff;
+
+    box-shadow:
+        0 0 18px rgba(123,44,255,0.25);
+
+}
+
+/* --------------------------
+   Status
+---------------------------*/
+
+.status{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #09131d,
+            #0b1824
+        );
+
+    border-top:
+        1px solid rgba(0,217,255,0.12);
+
+    border-bottom:
+        1px solid rgba(0,217,255,0.12);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.22);
+
+}
+
+.status-box{
+
+    flex:1;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15,30,44,0.95),
+            rgba(11,24,36,0.92)
+        );
+
+    padding:12px 8px;
+
+    border-radius:18px;
+
+    border:
+        1px solid rgba(0,217,255,0.12);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.28),
+        0 0 12px rgba(0,217,255,0.05);
+
+    backdrop-filter:blur(6px);
+
+    transition:0.25s;
+
+}
+
+.status-title{
+
+    font-size:11px;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    color:#8fcfe2;
+
+    opacity:0.85;
+
+    margin-bottom:6px;
+
+}
+
+.status-value{
+
+    margin-top:6px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    color:#00e5ff;
+
+    letter-spacing:0.5px;
+
+    font-family:Orbitron,sans-serif;
+
+    text-shadow:
+        0 0 10px rgba(0,229,255,0.28);
+
+}
+
+/* --------------------------
+   Map
+---------------------------*/
+
+#map{
+
+    width:100%;
+
+    height:52vh;
+
+}
+
+/* --------------------------
+   Saved Points
+---------------------------*/
+
+.saved-points-container{
+
+    padding:14px;
+
+    background:#08141f;
+
+}
+
+.saved-title{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#00d9ff;
+
+    margin-bottom:14px;
+
+}
+
+.saved-card{
+
+    background:#102131;
+
+    border:
+        1px solid #1c3a4f;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    margin-bottom:14px;
+
+    box-shadow:
+        0 3px 14px rgba(0,0,0,0.25);
+
+}
+
+.saved-name{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+.saved-coords{
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    opacity:0.8;
+
+    line-height:1.5;
+
+}
+
+.saved-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:14px;
+
+}
+
+.navigate-btn{
+
+    flex:1;
+
+    background:#008cff;
+
+}
+
+.delete-btn{
+
+    flex:1;
+
+    background:#c3002f;
+
+}
+
+/* --------------------------
+   Compass
+---------------------------*/
+
+.compass-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:12px;
+
+    margin-bottom:12px;
+
+}
+
+.compass{
+
+    width:135px;
+
+    height:135px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #0d2233,
+            #08141f
+        );
+
+    border:
+        4px solid rgba(0,217,255,0.7);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+        0 0 25px rgba(0,217,255,0.28),
+        0 0 45px rgba(0,217,255,0.12);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.compass-ring{
+
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+}
+
+.compass-north,
+.compass-east,
+.compass-south,
+.compass-west{
+
+    position:absolute;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#00d9ff;
+
+}
+
+.compass-north{
+
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+
+}
+
+.compass-east{
+
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+
+}
+
+.compass-south{
+
+    bottom:8px;
+    left:50%;
+    transform:translateX(-50%);
+
+}
+
+.compass-west{
+
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+
+}
+
+.arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    font-size:56px;
+
+    font-weight:bold;
+
+    color:#00ffff;
+
+    text-shadow:
+        0 0 18px rgba(0,255,255,0.9),
+        0 0 35px rgba(0,255,255,0.35);
+
+    transition:
+        transform 0.12s linear,
+        color 0.2s,
+        text-shadow 0.2s;
+
+    z-index:10;
+
+}
+
+.arrow.green{
+
+    color:#00ff88;
+
+    text-shadow:
+        0 0 18px rgba(0,255,136,0.95),
+        0 0 35px rgba(0,255,136,0.35);
+
+}
+
+.arrow.yellow{
+
+    color:#ffd000;
+
+    text-shadow:
+        0 0 18px rgba(255,208,0,0.95),
+        0 0 35px rgba(255,208,0,0.35);
+
+}
+
+.arrow.red{
+
+    color:#ff3b3b;
+
+    text-shadow:
+        0 0 18px rgba(255,59,59,0.95),
+        0 0 35px rgba(255,59,59,0.35);
+
+}
+
+/* --------------------------
+   WhatsApp
+---------------------------*/
+
+.whatsapp-icon{
+
+    color:#25D366 !important;
+
+    font-size:28px !important;
+
+    display:inline-block;
+
+    vertical-align:middle;
+
+    margin-right:8px;
+
+    line-height:1;
+
+}
+
+/* --------------------------
+   User Marker
+---------------------------*/
+
+.user-marker{
+
+    position:relative;
+
+    width:34px;
+
+    height:34px;
+
+}
+
+.user-dot{
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    background:#00aaff;
+
+    border-radius:50%;
+
+    top:8px;
+
+    left:8px;
+
+    border:
+        3px solid white;
+
+    z-index:2;
+
+}
+
+.user-pulse{
+
+    position:absolute;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,170,255,0.35);
+
+    animation:pulse 1.6s infinite;
+
+}
+
+/* --------------------------
+   Target Marker
+---------------------------*/
+
+.target-marker{
+
+    font-size:34px;
+
+    filter:
+        drop-shadow(
+            0 0 8px red
+        );
+
+}
+
+/* --------------------------
+   Saved Marker
+---------------------------*/
+
+.saved-marker{
+
+    font-size:26px;
+
+    filter:
+        drop-shadow(
+            0 0 8px #7b2cff
+        );
+
+}
+
+/* --------------------------
+   Tooltip
+---------------------------*/
+
+.leaflet-tooltip{
+
+    background:#08141f;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:6px 10px;
+
+    font-weight:bold;
+
+}
+
+/* --------------------------
+   Hidden
+---------------------------*/
+
+.hidden{
+
+    display:none;
+
+}
+
+/* --------------------------
+   Pulse
+---------------------------*/
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(0.7);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1.8);
+
+        opacity:0;
+
+    }
+
+}
+
+/* --------------------------
+   Footer
+---------------------------*/
+
+.footer{
+
+    width:100%;
+
+    padding:18px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #08141f,
+            #061018
+        );
+
+    border-top:
+        1px solid #173245;
+	
+	box-shadow:
+    0 -4px 20px rgba(0,0,0,0.35);
+
+}
+
+.footer-title{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#00d9ff;
+
+}
+
+.footer-subtitle{
+
+    margin-top:8px;
+
+    opacity:0.8;
+
+}
+
+.footer-contact{
+
+    margin-top:10px;
+
+    font-size:13px;
+
+    opacity:0.85;
+
+    color:white;
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:0.2s;
+
+}
+
+.footer-contact:hover{
+
+    opacity:1;
+
+}
+
+@keyframes splashTitleGlow{
+
+    from{
+
+        text-shadow:
+            0 0 10px rgba(0,229,255,0.4),
+            0 0 20px rgba(0,229,255,0.2);
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 18px rgba(0,229,255,0.9),
+            0 0 35px rgba(0,229,255,0.5);
+
+    }
+
+}
+
+@keyframes glowMove{
+
+    0%{
+
+        transform:translateX(-20px);
+
+        opacity:0.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateX(20px);
+
+        opacity:0.4;
+
+    }
+
+}
+
+@keyframes fadeInUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
